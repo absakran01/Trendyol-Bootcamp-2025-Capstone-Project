@@ -77,7 +77,7 @@ import jakarta.transaction.Transactional;
             temp.setDescription(product.getDescription());
             temp.setPrice(product.getPrice());
             temp.setTax(product.getTax());
-            temp.setStock(product.getStock());
+            temp.setQuantity(product.getQuantity());
 
             em.persist(temp);
 

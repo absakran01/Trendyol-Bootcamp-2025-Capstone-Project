@@ -20,7 +20,7 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public void buyProduct(Product product, int quantity) {
         Product temp = product;
-        temp.setStock(temp.getStock()-quantity);
+        temp.setQuantity(temp.getQuantity()-quantity);
         productDAO.updateProduct(temp, temp.getId());
     }
 
@@ -42,6 +42,14 @@ public class ProductServiceImpl implements ProductService{
         return productDAO.getProductsByKeyword(keyword);
     }
 
+    @Override
+    public void returnProduct(Product product) {
+        // TODO Auto-generated method stub
+        Product temp = productDAO.getProductById(product.getId());
+        temp.setQuantity(temp.getQuantity()+product.getQuantity());
+        productDAO.updateProduct(temp, temp.getId());
+    }
+
 
 
 
@@ -50,4 +58,6 @@ public class ProductServiceImpl implements ProductService{
     public ProductServiceImpl(ProductDAO productDAO){
         this.productDAO=productDAO;
     }
+
+
 }

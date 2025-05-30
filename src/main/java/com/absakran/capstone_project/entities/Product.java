@@ -26,7 +26,7 @@ public class Product {
     private double tax;
 
     @Column
-    private int stock;
+    private int quantity;
 
 
     // Getters and Setters
@@ -70,12 +70,12 @@ public class Product {
         this.tax = tax;
     }
 
-    public int getStock() {
-        return stock;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     

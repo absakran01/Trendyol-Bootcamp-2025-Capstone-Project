@@ -11,8 +11,11 @@ public interface ProductService {
 
     void buyProduct(Product product, int quantity);
 
+    void returnProduct(Product product);
+
     Product getProductById(long id);
 
     List<Product> getProductsByKeyword(String keyword);
+
 
 }

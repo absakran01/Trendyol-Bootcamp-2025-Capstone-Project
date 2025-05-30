@@ -116,7 +116,7 @@ public class ProductController {
         productDTO.setDescription(product.getDescription() != null ? product.getDescription().trim() : null);
         productDTO.setPrice(product.getPrice());
         productDTO.setTax(product.getTax());
-        productDTO.setStock(product.getStock());
+        productDTO.setQuantity(product.getQuantity());
 
         return productDTO;
     }
@@ -128,7 +128,7 @@ public class ProductController {
         return "\t{\n" +
                 "\t\tproduct name: " + product.getName() + "\n" +
                 "\t\tprice(not including tax): " + product.getPrice() + "\n" +
-                "\t\tstock left: " + product.getStock() + "\n\t}";
+                "\t\tstock left: " + product.getQuantity() + "\n\t}";
     }
 
 
@@ -143,7 +143,7 @@ public class ProductController {
                             "\n\t{\n" +
                     "\t\tproduct name: " +products.get(i).getName() + "\n" + 
                     "\t\tprice(not including tax): " +products.get(i).getPrice() + "\n" +
-                    "\t\tstock left: " +products.get(i).getStock() + "\n" +
+                    "\t\tstock left: " +products.get(i).getQuantity() + "\n" +
                     "\t}"
                     ;
 
