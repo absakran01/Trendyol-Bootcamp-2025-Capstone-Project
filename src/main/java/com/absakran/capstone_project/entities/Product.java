@@ -11,22 +11,22 @@ import jakarta.persistence.Table;
 public class Product {
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column
-    String name;
+    private String name;
 
     @Column
-    String description;
+    private String description;
 
     @Column
-    double price;
+    private double price;
 
     @Column
-    double tax;
+    private double tax;
 
     @Column
-    int stock;
+    private int stock;
 
 
     // Getters and Setters

@@ -1,17 +1,18 @@
-package com.absakran.capstone_project.repositories;
+package com.absakran.capstone_project.services;
 
 import java.util.List;
 
 import com.absakran.capstone_project.entities.Product;
 
-public interface ProductDAO {
+public interface ProductService {
     List<Product> getAllProducts();
 
     void addProduct(Product product);
+
+    void buyProduct(Product product, int quantity);
 
     Product getProductById(long id);
 
     List<Product> getProductsByKeyword(String keyword);
 
-    void updateProduct(Product product, long id);
 }

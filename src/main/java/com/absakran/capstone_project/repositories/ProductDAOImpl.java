@@ -2,15 +2,12 @@
 
     import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
     import com.absakran.capstone_project.entities.Product;
 
     import jakarta.persistence.EntityManager;
-    import jakarta.persistence.EntityManagerFactory;
-    import jakarta.persistence.Persistence;
-    import jakarta.persistence.PersistenceContext;
+
 import jakarta.transaction.Transactional;
 
     @Repository
@@ -29,7 +26,6 @@ import jakarta.transaction.Transactional;
             } catch (Exception e) {
                 throw e;
             }
-            em.close();
             return result;
         }
 
@@ -41,18 +37,6 @@ import jakarta.transaction.Transactional;
                 throw new IllegalArgumentException("Product cannot be null");
             }
             em.persist(product);
-        }
-
-        @Override
-        @Transactional
-        public void buyProduct(Product product, int quantity) {
-            // TODO Auto-generated method stub
-            if (product == null) {
-                throw new IllegalArgumentException("Product cannot be null");
-            }
-            Product temp = getProductById(product.getId());
-            temp.setStock(temp.getStock()-quantity);
-            em.persist(temp);
         }
 
         @Override
@@ -81,14 +65,20 @@ import jakarta.transaction.Transactional;
 
         @Override
         @Transactional
-        public void restockProduct(Product product, int restock) {
+        public void updateProduct(Product product, long id) {
             // TODO Auto-generated method stub
             if(product==null){
                 throw new IllegalArgumentException("Product cannot be null");
             }
 
-            Product temp = em.find(Product.class, product.getId());
-            temp.setStock(temp.getStock()+restock);
+            Product temp = em.find(Product.class, id);
+
+            temp.setName(product.getName());
+            temp.setDescription(product.getDescription());
+            temp.setPrice(product.getPrice());
+            temp.setTax(product.getTax());
+            temp.setStock(product.getStock());
+
             em.persist(temp);
 
         }
