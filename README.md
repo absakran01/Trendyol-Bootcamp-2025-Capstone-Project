@@ -27,22 +27,28 @@ How to Run
 Always run /init before using the cart endpoints.
 
  Products
-Method	Endpoint	Description
-GET	/listproducts	List all products with formatted output.
-POST	/addproduct	Add a single product. JSON body required.
-POST	/addproducts	Add multiple products at once. JSON array body.
-GET	/searchproducts?keyword={keyword}	Search products by name/description keyword.
-GET	/searchproduct?id={id}	Get a single product by ID (formatted).
-GET	/showproduct?id={id}	Get a single product as JSON.
+    | Method | Endpoint                            | Description                                 |
+| ------ | ----------------------------------- | ------------------------------------------- |
+| GET    | `/listproducts`                     | List all products with formatted output.    |
+| POST   | `/addproduct`                       | Add a single product (JSON body required).  |
+| POST   | `/addproducts`                      | Add multiple products at once (JSON array). |
+| GET    | `/searchproducts?keyword={keyword}` | Search products by name or description.     |
+| GET    | `/searchproduct?id={id}`            | Get a single product by ID (formatted).     |
+| GET    | `/showproduct?id={id}`              | Get a single product as JSON object.        |
+
 
  Cart
-Method	Endpoint	Description
-GET	/init	Initialize the cart (must be called before using).
-POST	/addtocart?id={id}&quantity={quantity}	Add a product to the cart.
-POST	/removefromcart?id={id}	Remove a product from the cart.
-GET	/showcart	Show all items currently in the cart.
-GET	/emptycart	Empty the entire cart.
-GET	/pay	Checkout and get the total bill (cart is cleared).
+    | Method | Endpoint                                 | Description                                        |
+| ------ | ---------------------------------------- | -------------------------------------------------- |
+| GET    | `/init`                                  | Initialize the cart (call before using).           |
+| POST   | `/addtocart?id={id}&quantity={quantity}` | Add a product to the cart.                         |
+| POST   | `/removefromcart?id={id}`                | Remove a product from the cart.                    |
+| GET    | `/showcart`                              | Show all items currently in the cart.              |
+| GET    | `/emptycart`                             | Empty the entire cart.                             |
+| GET    | `/pay`                                   | Checkout and get the total bill (cart is cleared). |
+
+
+    
 
 Sample Data
 You can populate the database using:
@@ -51,7 +57,7 @@ You can populate the database using:
 POST /addproducts
 Use the following JSON body:
 
-json:
+```
 [
   {
     "id": null,
@@ -174,6 +180,8 @@ json:
     "quantity": 50
   }
 ]
+```
+
 
 
 
