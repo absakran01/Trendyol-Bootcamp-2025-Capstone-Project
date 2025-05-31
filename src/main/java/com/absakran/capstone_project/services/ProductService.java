@@ -11,7 +11,7 @@ public interface ProductService {
 
     void buyProduct(Product product, int quantity);
 
-    void returnProduct(Product product);
+    void returnProduct(long id, int quantity);
 
     Product getProductById(long id);
 

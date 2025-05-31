@@ -71,16 +71,14 @@ import jakarta.transaction.Transactional;
                 throw new IllegalArgumentException("Product cannot be null");
             }
 
-            Product temp = em.find(Product.class, id);
-
-            temp.setName(product.getName());
-            temp.setDescription(product.getDescription());
-            temp.setPrice(product.getPrice());
-            temp.setTax(product.getTax());
-            temp.setQuantity(product.getQuantity());
-
-            em.persist(temp);
-
+            System.out.println(product.getQuantity());
+            Product managedProduct = em.find(Product.class, id);
+            managedProduct.setName(product.getName());
+            managedProduct.setDescription(product.getDescription());
+            managedProduct.setPrice(product.getPrice());
+            managedProduct.setTax(product.getTax());
+            System.out.println("updating product: " + managedProduct.getName() + " with quantity: " + product.getQuantity());
+            managedProduct.setQuantity(product.getQuantity());
         }
 
         

@@ -74,7 +74,7 @@ public class ShoppingCartController {
             return new ResponseEntity<>("please provide product ID", HttpStatus.BAD_REQUEST);
         else{
             try{
-                shoppingCartService.removeFromCart(productService.getProductById(id));
+                shoppingCartService.removeFromCart(id);
                 return new ResponseEntity<>("product removed from cart", HttpStatus.OK);
             } catch (Exception e) {
                 // TODO: handle exception
@@ -88,7 +88,7 @@ public class ShoppingCartController {
     @GetMapping("/showcart")
     public ResponseEntity<Object> showCart() {
         try {
-            return new ResponseEntity<>(shoppingCartService.getCart(), HttpStatus.OK);
+            return new ResponseEntity<>(shoppingCartService.getCart().toString(), HttpStatus.OK);
         } catch (Exception e) {
             // TODO: handle exception
             System.out.println(e);
@@ -98,7 +98,7 @@ public class ShoppingCartController {
 
     @GetMapping("/emptycart")
     public ResponseEntity<Object> emptyCart() {
-        shoppingCartService.initCart();
+        shoppingCartService.emptyCart();
         return new ResponseEntity<>("Cart emptied", HttpStatus.OK);
     }
 

@@ -2,6 +2,7 @@ package com.absakran.capstone_project.repositories;
 
 import com.absakran.capstone_project.entities.Product;
 
+import com.absakran.capstone_project.entities.ShoppingCartItem;
 import com.absakran.capstone_project.entities.ShoppingCart;
 
 public interface ShoppingCartDAO {
@@ -11,6 +12,8 @@ public interface ShoppingCartDAO {
 
     public ShoppingCart getCart();
 
-    public void removeFromCart(Product product);
+    public ShoppingCartItem removeFromCart(long id);
+
+    public void updateCart(ShoppingCart shoppingCart);
 
 }

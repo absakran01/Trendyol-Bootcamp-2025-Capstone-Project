@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.absakran.capstone_project.entities.Product;
 import com.absakran.capstone_project.entities.ShoppingCart;
+import com.absakran.capstone_project.entities.ShoppingCartItem;
 import com.absakran.capstone_project.services.ProductService;
 import com.absakran.capstone_project.services.ProductServiceImpl;
 import jakarta.persistence.EntityManager;
@@ -22,18 +23,28 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO{
     public void addToCart(Product product) {
         // TODO Auto-generated method stub
         ShoppingCart shoppingCart = em.find(ShoppingCart.class, 1);
-        shoppingCart.getCart().add(product);   
-        em.persist(shoppingCart);
+        ShoppingCartItem cartItem = new ShoppingCartItem();
+        cartItem.setProduct(product);
+        cartItem.setCart(shoppingCart);
+        cartItem.setQuantity(product.getQuantity());
+        em.persist(cartItem);  
+        em.merge(shoppingCart);
     }
 
     @Override
     @Transactional
-    public void removeFromCart(Product product) {
+    public ShoppingCartItem removeFromCart(long id) {
         // TODO Auto-generated method stub
         ShoppingCart shoppingCart = em.find(ShoppingCart.class, 1);
-        shoppingCart.getCart().remove(product);
-        productService.returnProduct(product);
+        ShoppingCartItem removedItem = shoppingCart.getItems().stream()
+            .filter(item -> item.getProduct().getId() == id)
+            .findFirst().orElseThrow(() -> new IllegalArgumentException("Product not found in cart"));
+
+        em.remove(removedItem);
+        shoppingCart.getItems().remove(removedItem);
+        System.out.println("inside ShoppingCartDAOImpl removing product: " + removedItem.getProduct().getName() + " with quantity: " + removedItem.getQuantity());
         em.persist(shoppingCart);
+        return removedItem;
     }
 
     @Override
@@ -45,6 +56,14 @@ public class ShoppingCartDAOImpl implements ShoppingCartDAO{
         }
         ShoppingCart shoppingCart = new ShoppingCart();
         em.persist(shoppingCart);
+    }
+
+
+    @Override
+    @Transactional
+    public void updateCart(ShoppingCart shoppingCart) {
+        // TODO Auto-generated method stub
+        em.merge(shoppingCart);
     }
 
     @Override

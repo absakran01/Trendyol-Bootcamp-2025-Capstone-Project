@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.annotations.ManyToAny;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,40 +22,31 @@ public class ShoppingCart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
-    private int numberOfProducts;
 
-    @Column
-    private double totalBill;
 
-    @ManyToAny()
-    @JoinTable(name = "shopping_cart_products",
-        joinColumns = {@JoinColumn(name = "shopping_cart_id")},
-        inverseJoinColumns = {@JoinColumn(name = "product_id")})
-    private List<Product> cart;
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+    private List<ShoppingCartItem> items;
 
     // getters and setters
-    public List<Product> getCart() {
-        return cart;
+    public List<ShoppingCartItem> getItems() {
+        return items;
     }
 
-    public void setCart(List<Product> cart) {
-        this.cart = cart;
+    public void setItems(List<ShoppingCartItem> items) {
+        this.items = items;
     }
 
-    public int getNumberOfProducts() {
-        return numberOfProducts;
+    @Override
+    public String toString() {
+        String string =  "ShoppingCart [id=" + id + "]";
+        for (ShoppingCartItem item : items) {
+            string += ", item=" + item.getProduct().getName() + " (quantity: " + item.getQuantity() + ")";
+        }
+        return string;
     }
 
-    public void setNumberOfProducts(int numberOfProducts) {
-        this.numberOfProducts = numberOfProducts;
-    }
-
-    public double getTotalBill() {
-        return totalBill;
-    }
-
-    public void setTotalBill(double totalBill) {
-        this.totalBill = totalBill;
-    }
+    // public void setId(int i) {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'setId'");
+    // }
 }

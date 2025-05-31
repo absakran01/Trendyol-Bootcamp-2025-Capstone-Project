@@ -20,8 +20,9 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public void buyProduct(Product product, int quantity) {
         Product temp = product;
+        System.out.println("buying product: " + temp.getName() + " with quantity: " + quantity);
         temp.setQuantity(temp.getQuantity()-quantity);
-        productDAO.updateProduct(temp, temp.getId());
+        productDAO.updateProduct(temp, product.getId());
     }
 
     @Override
@@ -43,10 +44,13 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public void returnProduct(Product product) {
+    public void returnProduct(long id, int quantity) {
         // TODO Auto-generated method stub
-        Product temp = productDAO.getProductById(product.getId());
-        temp.setQuantity(temp.getQuantity()+product.getQuantity());
+        Product temp = productDAO.getProductById(id);
+        System.out.println("returning product: " + temp.getName() + " with quantity: " + quantity);
+        System.out.println("current quantity: " + temp.getQuantity());
+        System.out.println("new quantity: " + (temp.getQuantity() + quantity));
+        temp.setQuantity(temp.getQuantity() + quantity);
         productDAO.updateProduct(temp, temp.getId());
     }
 
