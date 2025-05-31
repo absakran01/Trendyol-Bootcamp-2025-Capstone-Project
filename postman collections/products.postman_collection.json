@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "4be1c6e0-b4c6-4653-8730-44e2cb3ba577",
+		"name": "products",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28696742",
+		"_collection_link": "https://library-team-2899.postman.co/workspace/trendyol-capstone-project~e1c6a3c2-40ec-464a-908c-5c987c08e0df/collection/28696742-4be1c6e0-b4c6-4653-8730-44e2cb3ba577?action=share&source=collection_link&creator=28696742"
+	},
+	"item": [
+		{
+			"name": "add product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Chicken Shawarma\",\r\n  \"description\": \"Grilled chicken wrapped in khubuz with garlic sauce and pickles\",\r\n  \"price\": 15.0,\r\n  \"tax\": 0.15,\r\n  \"stock\": 40\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/addproduct"
+			},
+			"response": []
+		},
+		{
+			"name": "add products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"id\": null,\r\n    \"name\": \"Turkish Tea (Rize Çayı)\",\r\n    \"description\": \"Traditional black tea from Rize region\",\r\n    \"price\": 25.0,\r\n    \"tax\": 0.15,\r\n    \"quantity\": 100\r\n  },\r\n  {\r\n    \"id\": null,\r\n    \"name\": \"Simit\",\r\n    \"description\": \"Crunchy sesame bread ring\",\r\n    \"price\": 5.0,\r\n    \"tax\": 0.15,\r\n    \"quantity\": 200\r\n  },\r\n  {\r\n    \"id\": null,\r\n    \"name\": \"Lokum (Turkish Delight)\",\r\n    \"description\": \"Rose-flavored Turkish Delight\",\r\n    \"price\": 15.0,\r\n    \"tax\": 0.15,\r\n    \"quantity\": 150\r\n  },\r\n  {\r\n    \"id\": null,\r\n    \"name\": \"Ayran\",\r\n    \"description\": \"Salted yogurt drink\",\r\n    \"price\": 3.5,\r\n    \"tax\": 0.1,\r\n    \"quantity\": 120\r\n  },\r\n  {\r\n    \"id\": null,\r\n    \"name\": \"Sucuk\",\r\n    \"description\": \"Dry spicy beef sausage\",\r\n    \"price\": 40.0,\r\n    \"tax\": 0.15,\r\n    \"quantity\": 80\r\n  },\r\n  {\r\n    \"id\": null,\r\n    \"name\": \"Beyaz Peynir\",\r\n    \"description\": \"Turkish white cheese, feta-style\",\r\n    \"price\": 30.0,\r\n    \"tax\": 0.15,\r\n    \"quantity\": 60\r\n  },\r\n  {\r\n    \"id\": null,\r\n    \"name\": \"Zeytin\",\r\n    \"description\": \"Black olives from Gemlik\",\r\n    \"price\": 20.0,\r\n    \"tax\": 0.15,\r\n    \"quantity\": 90\r\n  },\r\n  {\r\n    \"id\": null,\r\n    \"name\": \"Baklava\",\r\n    \"description\": \"Pistachio-layered sweet pastry\",\r\n    \"price\": 50.0,\r\n    \"tax\": 0.15,\r\n    \"quantity\": 70\r\n  },\r\n  {\r\n    \"id\": null,\r\n    \"name\": \"İskender Kebab\",\r\n    \"description\": \"Grilled döner with yogurt and tomato sauce\",\r\n    \"price\": 70.0,\r\n    \"tax\": 0.15,\r\n    \"quantity\": 40\r\n  },\r\n  {\r\n    \"id\": null,\r\n    \"name\": \"Lahmacun\",\r\n    \"description\": \"Thin spicy meat flatbread\",\r\n    \"price\": 10.0,\r\n    \"tax\": 0.15,\r\n    \"quantity\": 100\r\n  },\r\n  {\r\n    \"id\": null,\r\n    \"name\": \"Tahin\",\r\n    \"description\": \"Pure sesame paste\",\r\n    \"price\": 18.0,\r\n    \"tax\": 0.15,\r\n    \"quantity\": 75\r\n  },\r\n  {\r\n    \"id\": null,\r\n    \"name\": \"Nar Ekşisi\",\r\n    \"description\": \"Pomegranate molasses\",\r\n    \"price\": 22.0,\r\n    \"tax\": 0.15,\r\n    \"quantity\": 55\r\n  },\r\n  {\r\n    \"id\": null,\r\n    \"name\": \"Menemen Set\",\r\n    \"description\": \"Tomato-pepper-egg mix kit\",\r\n    \"price\": 12.0,\r\n    \"tax\": 0.15,\r\n    \"quantity\": 85\r\n  },\r\n  {\r\n    \"id\": null,\r\n    \"name\": \"Künefe\",\r\n    \"description\": \"Sweet cheese pastry with syrup\",\r\n    \"price\": 35.0,\r\n    \"tax\": 0.15,\r\n    \"quantity\": 30\r\n  },\r\n  {\r\n    \"id\": null,\r\n    \"name\": \"Kaymak\",\r\n    \"description\": \"Clotted cream made from buffalo milk\",\r\n    \"price\": 28.0,\r\n    \"tax\": 0.15,\r\n    \"quantity\": 50\r\n  }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/addproducts"
+			},
+			"response": []
+		},
+		{
+			"name": "show product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/showproduct?id=5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"showproduct"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/listproducts"
+			},
+			"response": []
+		},
+		{
+			"name": "search products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/searchproducts?keyword=chicken",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"searchproducts"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "chicken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/searchproduct?id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"searchproduct"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

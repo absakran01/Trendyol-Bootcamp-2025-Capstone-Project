@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "42f2d461-fec0-4c58-8605-061663cd2b22",
+		"name": "shopping cart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28696742",
+		"_collection_link": "https://library-team-2899.postman.co/workspace/trendyol-capstone-project~e1c6a3c2-40ec-464a-908c-5c987c08e0df/collection/28696742-42f2d461-fec0-4c58-8605-061663cd2b22?action=share&source=collection_link&creator=28696742"
+	},
+	"item": [
+		{
+			"name": "init cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/init"
+			},
+			"response": []
+		},
+		{
+			"name": "add product to shopping cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/addtocart?id=3&quantity=10",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"addtocart"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						},
+						{
+							"key": "quantity",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/pay"
+			},
+			"response": []
+		},
+		{
+			"name": "remove product from shopping cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/removefromcart?id=11",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"removefromcart"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/showcart"
+			},
+			"response": []
+		},
+		{
+			"name": "empty cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/emptycart"
+			},
+			"response": []
+		}
+	]
+}
