@@ -47,7 +47,13 @@ Always run /init before using the cart endpoints.
 | GET    | `/emptycart`                             | Empty the entire cart.                             |
 | GET    | `/pay`                                   | Checkout and get the total bill (cart is cleared). |
 
+Postman Collection
+A Postman collection is provided for easy API testing.
 
+Location:
+```
+/postman-collections/ShoppingCartAPI.postman_collection.json
+```
     
 
 Sample Data
